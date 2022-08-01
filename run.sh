@@ -1,8 +1,11 @@
 #!/bin/bash
 
-# Version 0.1
+# Version 0.5
 # Last Updated August 1, 2022
 # Contact Zoltan (zkovacs@zscaler.com) with questions or issues
+
+#TODOS
+# REMOVE REFERENCES NO IDENTITIESONLY FOR SSH SESSIONS IN THIS AND RUN SCRIPT!
 
 #Colors
 RED='\033[0;31m'
@@ -46,11 +49,12 @@ if [[ ! -e ./.checksrc ]]; then
     # initialize environment variables and run script
     . ./.checksrc
     if [ -z "$ccmgmtip" ] || [ -z "$cckey" ] || [ -z "$jumpboxhost" ] || [ -z "$jumpboxusername" ] || [ -z "$jumpboxkey" ]; then
-        echo "Cloud Connector info is missing. Remove .checksrc file and try again"
+        echo -e ${RED}"Connection info is missing. Remove .checksrc file and run the script again"${NC}
         exit 1
         else
         echo ""
         echo "Checking Cloud Connector Information. Please wait..."
+        echo ""
         if [ $jumpbox = "no" ]; then
         #SSH direct to Cloud Connector
         ssh -i ${cckey} zsroot@${ccmgmtip} 'bash -s' < checks.sh
@@ -68,9 +72,3 @@ unset jumpbox
 unset jumpboxhost
 unset jumpboxusername
 unset jumpboxkey
-
-#zoltan testing for script below... remove before sharing
-#ccip: 10.1.200.139
-#/Users/zoltan/gitrepos/zoltanlab-troubleshootingtest/examples/zsdemo-key-9v3xsc9y.pem
-#jumphost: ec2-54-237-51-154.compute-1.amazonaws.com
-#jumpusername: centos

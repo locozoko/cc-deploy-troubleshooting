@@ -1,0 +1,6 @@
+export ccmgmtip=
+export cckey=/Users/zoltan/gitrepos/zoltanlab-tsazure/
+export jumpbox=
+export jumpboxhost=
+export jumpboxusername=
+export jumpboxkey=/Users/zoltan/gitrepos/zoltanlab-tsazure/
