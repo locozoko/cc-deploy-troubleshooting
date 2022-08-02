@@ -1,6 +1,0 @@
-export ccmgmtip=10.1.200.32
-export cckey=/Users/zoltan/gitrepos/zoltanlab-troubleshootingtest/examples/zsdemo-key-po5c839b.pem
-export jumpbox=yes
-export jumpboxhost=ec2-34-202-162-237.compute-1.amazonaws.com
-export jumpboxusername=centos
-export jumpboxkey=/Users/zoltan/gitrepos/zoltanlab-troubleshootingtest/examples/zsdemo-key-po5c839b.pem
