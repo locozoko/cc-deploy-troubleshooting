@@ -27,7 +27,7 @@ if [[ ! -e ./.checksrc ]]; then
     read -p "Jumpbox username: " jumpboxusername
     read -p "Jumpbox SSH Key: " jumpboxkey
     echo ""
-    echo "Checking Cloud Connector Information. Please wait..."
+    echo "Connecting to Cloud Connector. Please wait..."
     if [ $jumpbox = "no" ]; then
         #SSH direct to Cloud Connector
         ssh -i ${cckey} zsroot@${ccmgmtip} 'bash -s' < checks.sh

@@ -17,7 +17,7 @@ bootlog=/var/run/janus/bootup.log
 runlog=/var/run/janus/runtime.log
 
 #Check if janus bootup is complete. Check for bootup.log errors if not complete.
-echo "Checking bootup.log..."
+echo "Checking bootup.log for known errors..."
 echo ""
 if grep -m 1 -q "Bootup Complete" $bootlog; then
     echo "Cloud connector Control plane bootup complete without errors..."
@@ -118,7 +118,7 @@ fi
 #Check the runtime.log for errors if the runtime.log file exists
 if [[ -f "/var/run/janus/runtime.log" ]]
 then
-    echo "Checking runtime.log..."
+    echo "Checking runtime.log for known errors..."
     echo ""
     #Check for Azure Managed Identity Role/Permissions
     #if grep -m 1 -q "does not have secrets get permission on key vault" $runlog; then
