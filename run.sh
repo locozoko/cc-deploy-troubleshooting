@@ -4,9 +4,6 @@
 # Last Updated August 1, 2022
 # Contact Zoltan (zkovacs@zscaler.com) with questions or issues
 
-#TODOS
-# REMOVE REFERENCES NO IDENTITIESONLY FOR SSH SESSIONS IN THIS AND RUN SCRIPT!
-
 #Colors
 RED='\033[0;31m'
 YELLOW='\033[1;33m'
@@ -36,8 +33,8 @@ if [[ ! -e ./.checksrc ]]; then
         ssh -i ${cckey} zsroot@${ccmgmtip} 'bash -s' < checks.sh
         else
         ##SSH to Cloud Connector via jumpbox
-        ssh -o IdentitiesOnly=yes -i ${cckey} zsroot@${ccmgmtip} -o "proxycommand \
-        ssh -W %h:%p \-i ${jumpboxkey} -o IdentitiesOnly=yes ${jumpboxusername}@${jumpboxhost}" 'bash -s' < checks.sh
+        ssh -i ${cckey} zsroot@${ccmgmtip} -o "proxycommand \
+        ssh -W %h:%p \-i ${jumpboxkey} ${jumpboxusername}@${jumpboxhost}" 'bash -s' < checks.sh
     fi
     echo "export ccmgmtip=${ccmgmtip}" > .checksrc
     echo "export cckey=${cckey}" >> .checksrc
@@ -60,8 +57,8 @@ if [[ ! -e ./.checksrc ]]; then
         ssh -i ${cckey} zsroot@${ccmgmtip} 'bash -s' < checks.sh
         else
         ##SSH to Cloud Connector via jumpbox
-        ssh -o IdentitiesOnly=yes -i ${cckey} zsroot@${ccmgmtip} -o "proxycommand \
-        ssh -W %h:%p \-i ${jumpboxkey} -o IdentitiesOnly=yes ${jumpboxusername}@${jumpboxhost}" 'bash -s' < checks.sh
+        ssh -i ${cckey} zsroot@${ccmgmtip} -o "proxycommand \
+        ssh -W %h:%p \-i ${jumpboxkey} ${jumpboxusername}@${jumpboxhost}" 'bash -s' < checks.sh
         fi
     fi
 fi
