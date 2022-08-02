@@ -1,7 +1,8 @@
 #!/bin/bash
 
-#Things to check for to still add into script: 
-# REMOVE REFERENCES NO IDENTITIESONLY FOR SSH SESSIONS IN THIS AND RUN SCRIPT!
+# Version 0.5
+# Last Updated August 1, 2022
+# Contact Zoltan (zkovacs@zscaler.com) with questions or issues
 
 #Colors
 RED='\033[0;31m'
