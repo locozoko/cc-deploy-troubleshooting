@@ -12,7 +12,7 @@ Output from the scripts are only displayed on the screen and are not written to 
 
 Demo Video: https://www.loom.com/share/8a1c6b827f6c4e648eccd175a155f200
 
-1. Cone this repo to your macos or linux device: git clone https://github.com/locozoko/cc-deploy-troubleshooting
+1. Cone this repo to your macos or linux device: <code>git clone https://github.com/locozoko/cc-deploy-troubleshooting</code>
 2. Run the troubleshooting helper script: ./run.sh
 3. On first run, you will be prompted for various input such as Cloud Connector Management IP and SSH Key, if there's a jumbpox/bastion, etc. 
 4. **Please note the SSH Key inputs require a full path so if the key is not in the same folder as this cloned repo, provide the full path such as /Users/someone/mykeys/cloudconnector.key. Also note that the script simply uses SSH to execute the commands remotely, so you'll need the private key already copied to the Jumpbox/bastion you specify. 
