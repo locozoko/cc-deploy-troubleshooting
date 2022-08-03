@@ -8,13 +8,10 @@ There are 2 ways you can use these scripts: Run locally from your macos or linux
 
 Output from the scripts are only displayed on the screen and are not written to a log file.
 
-### Run the script directly on a Cloud Connector
-1. Cone this repo on the Cloud Connector: git clone https://github.com/locozoko/cc-deploy-troubleshooting
-2. Run the troubleshooting script: ./checks.sh
-3. Review the output as it will display any known errors with the common root causes and steps to fix them.
-4. Rerun the script whenver you fix the issue. You can run it as many times as needed.
-
 ### Run the script from your macos or linux device
+
+Demo Video: https://www.loom.com/share/8a1c6b827f6c4e648eccd175a155f200
+
 1. Cone this repo to your macos or linux device: git clone https://github.com/locozoko/cc-deploy-troubleshooting
 2. Run the troubleshooting helper script: ./run.sh
 3. On first run, you will be prompted for various input such as Cloud Connector Management IP and SSH Key, if there's a jumbpox/bastion, etc. 
@@ -24,6 +21,12 @@ Output from the scripts are only displayed on the screen and are not written to 
 7. Rerun the script whenver you fix the issue. You can run it as many times as needed.
 
 You'll notice after the first run you are no longer prompted for Cloud Connector or Jumpbox input. That's because the script saves those variables into the same directory as a hidden file ".checksrc". If you want to run the script against another Cloud Connector, you can either delete the .checksrc file or just modify the variables with the new information and execute ./run.sh again.
+
+### Run the script directly on a Cloud Connector
+1. Cone this repo on the Cloud Connector: git clone https://github.com/locozoko/cc-deploy-troubleshooting
+2. Run the troubleshooting script: ./checks.sh
+3. Review the output as it will display any known errors with the common root causes and steps to fix them.
+4. Rerun the script whenver you fix the issue. You can run it as many times as needed.
 
 ## Version and Help
 
