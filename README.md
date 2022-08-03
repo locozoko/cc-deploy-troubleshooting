@@ -1,8 +1,18 @@
 # Cloud Connector Deployment Troubleshooting Script
 
+## Description
+This script is not an official Zscaler script and was used to help improve time to resolution for Cloud Connector deployments. This will be maintained and updated when possible but it is not guaranteed to always catch the latest or newest errors. However, most of the common deployment and configuration issues will be identified with this script
+
+## How to Use
+There are 2 ways you can use these scripts: Run locally from your macos or linux device or run directly on a Cloud Connector.
+
+### Run the script directly on a Cloud Connector
 
 
-# Version and Help
+### Run the script from your macos or linux device
+
+
+## Version and Help
 
 Version 0.6
 Last Updated August 2 2022
