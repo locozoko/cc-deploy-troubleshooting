@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Version 0.6
-# Last Updated August 2, 2022
+# Version 0.7
+# Last Updated August 3, 2022
 # Contact Zoltan (zkovacs@zscaler.com) with questions or issues
 
 #Colors
@@ -125,7 +125,6 @@ then
     echo "Checking runtime.log for known errors..."
     echo ""
     #Check for Azure Managed Identity Role/Permissions
-    #if grep -m 1 -q "does not have secrets get permission on key vault" $runlog; then
     if tail -200 $runlog | grep -m 1 -q "does not have secrets get permission on key vault"; then
         echo -e ${RED}"The user, group or application...does not have secrets get permission on key vault"
         echo -e ${YELLOW}"Reason: The Managed Identity does not correct permissions"
@@ -133,15 +132,20 @@ then
         echo ""
     fi
     #Check for Old Cloud Connector Image Version
-    #if grep -m 1 -q " failed to find the version of janus : pkg: Repository Zscaler missing" $runlog; then
     if tail -200 $runlog | grep -m 1 -q " failed to find the version of janus : pkg: Repository Zscaler missing"; then
         echo -e ${RED}"failed to find the version of janus : pkg: Repository Zscaler missing"
-        echo -e ${YELLOW}"Reason: Possibly using an old Cloud Connector Azure VM Image Version or AWS AMI"
+        echo -e ${YELLOW}"Reason: Possibly referencing an old Cloud Connector Azure VM Image Version or AWS AMI"
+        echo -e ${GREEN}"How to Fix: Use latest or update CFT/TF deployment script with latest Cloud Connector image"${NC}
+        echo ""
+    fi
+    #Additional Check for Old Cloud Connector Image Version
+    if tail -200 $runlog | grep -m 1 -q " pkg edgeconnector-nightly doesn't seem to be exist in the remote repositories: pkg: Repository FreeBSD missing"; then
+        echo -e ${RED}"pkg edgeconnector-nightly doesn't seem to be exist in the remote repositories: pkg: Repository FreeBSD missing"
+        echo -e ${YELLOW}"Reason: Possibly referencing an old Cloud Connector Azure VM Image Version or AWS AMI"
         echo -e ${GREEN}"How to Fix: Use latest or update CFT/TF deployment script with latest Cloud Connector image"${NC}
         echo ""
     fi
     #Check for License SKU
-    #if grep -m 1 -q "Malformed DHCP lease response" $runlog; then
     if tail -200 $runlog | grep -m 1 -q "Malformed DHCP lease response"; then
         echo -e ${RED}"Error: Malformed DHCP lease response"
         echo -e ${YELLOW}"Reason: Missing License SKU in Tenant"

@@ -1,7 +1,7 @@
 #!/bin/bash
 
-# Version 0.6
-# Last Updated August 2, 2022
+# Version 0.7
+# Last Updated August 3, 2022
 # Contact Zoltan (zkovacs@zscaler.com) with questions or issues
 
 #Colors
