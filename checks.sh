@@ -110,11 +110,10 @@ if grep -m 1 -q "Bootup Complete" $bootlog; then
      echo ""
     fi
     #Check for pending activations in ZIA and CC admin consoles
-    if tail -200 $bootlog | grep -m 1 -q  "status_code 500" ; then
-        echo -e ${RED}"Error: status_code 500"
+    if tail -200 $bootlog | grep -m 1 -q  "Sign CSR EC VM not found" ; then
+        echo -e ${RED}"Error: Sign CSR EC VM not found"
         echo -e ${YELLOW}"Reason: There is a pending activation in the ZIA/CC admin portal"
         echo -e ${GREEN}"How to Fix: Active changes in the ZIA/CC admin portal"${NC}
-        echo -e ${GREEN}"Then run the following command on the Cloud Connector: sudo janus restart"${NC}
      echo ""
     fi
 fi
@@ -192,6 +191,13 @@ fi
         echo -e ${RED}"Error: ZIA gateway PAC resolution failed"
         echo -e ${YELLOW}"Reason: The Cloud Connector Service Interface is unable to reach out to the Zscaler Cloud"
         echo -e ${GREEN}"How to Fix: Check for and fix outbound firewall/security rules for the Cloud Connector Service Interface outbound to Internet"${NC}
+        echo ""
+    fi
+    #Check for pending activations in ZIA or CC Admin
+    if tail -200 $runlog | grep -m 1 -q "ZIA gateway PAC resolution failed"; then
+        echo -e ${RED}"Error: ZIA gateway PAC resolution failed"
+        echo -e ${YELLOW}"Reason: A pending Activation in the ZIA or CC Admin Console is preventing registration"
+        echo -e ${GREEN}"How to Fix: Activate changes in ZIA and CC Admin Console(s)"${NC}
         echo ""
     fi
 fi
